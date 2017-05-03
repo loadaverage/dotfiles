@@ -1,0 +1,25 @@
+#aliases
+alias startall='startx; vlock -c'
+alias l='ls -l $lsopt'
+alias ll='ls -1hrt $lsopt'
+alias lll='ls -al $lsopt'
+alias lt='tree'
+alias nstat='netstat -nlop'
+alias tstat='netstat -ntlop'
+alias grep='grep --color=auto'
+#get IP
+alias pubip='dig myip.opendns.com @resolver1.opendns.com +short'
+#https://github.com/jessfraz/dotfiles/blob/master/.aliases
+alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
+alias copy='xclip -selection clipboard'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ...='cd ../../..'
+alias gp='git push'
+alias gc='git commit'
+alias gpl='git pull'
+alias ga='git add'
+alias gl='git log --graph --decorate --color=auto'
+function gs() {
+  git status
+}
