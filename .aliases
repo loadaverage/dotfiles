@@ -19,7 +19,7 @@ alias gp='git push'
 alias gc='git commit'
 alias gpl='git pull'
 alias ga='git add'
-alias gl='git log --graph --decorate --color=auto'
+alias gl='git log --show-signature --graph --decorate --color=auto'
 function gs() {
   git status
 }
