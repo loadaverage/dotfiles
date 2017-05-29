@@ -5,6 +5,8 @@ PS1="[$(print '%{\e[38;5;208;1m%}%n%{\e[0m%}')%{$fg[white]%}@%{$reset_color%}%{$
 #options
 lsopt='--color=auto'
 export EDITOR='vim'
+export TERM=xterm-256color
+export GPG_TTY=$(tty)
 #correct mistakes
 setopt correct_all
 #ignore duplicate entries in history
