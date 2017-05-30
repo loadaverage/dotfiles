@@ -24,6 +24,7 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 bindkey '^R' history-incremental-search-backward
 bindkey '^_' undo
 bindkey '^K' kill-line
+bindkey "^U" backward-kill-line
 #
 #fixes for special keys
 # create a zkbd compatible hash;
