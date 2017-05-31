@@ -8,3 +8,4 @@
 !.config/
 .config/*
 !.config/mc
+.config/mc/ini
