@@ -120,8 +120,9 @@ map <F3> :ColorHighlight<CR>
 imap  <C-s> <C-X>/
 "diff two buffers
 nmap <A-d> :windo diffoff <CR> :windo diffthis <CR>
-"split wordlist into one column
+"split wordlist into one column/line
 nmap rn :%s/\n//g <CR> :%s/ \{1,}/\r/g <CR>
+nmap rn :%s/\n//g <CR> :%s/ \{1,}/ /g <CR>
 
 let g:NERDTreeFileExtensionHighlightFullName = 1
 let g:NERDTreeExactMatchHighlightFullName = 1
