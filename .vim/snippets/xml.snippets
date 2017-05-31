@@ -1,0 +1,18 @@
+snippet vqmod
+	<?xml version="1.0" encoding="UTF-8"?>
+	<modification>
+		<id>${1:name}</id>
+		<version>${2:version}</version>
+		<vqmver>${3:vqmodversion}</vqmver>
+		<author>${4:author}</author>
+		<file name="${5:patch/to/file.php}">
+			<operation error="${6:log}">
+				<search position="${7:replace}"><![CDATA[
+					$var = '${8:ABC}';
+					]]></search>
+					<add><![CDATA[
+					$var = '${9:123}';
+					]]></add>
+					</operation>
+				</file>
+	</modification>

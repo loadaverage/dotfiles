@@ -4,6 +4,7 @@ colors
 PS1="[$(print '%{\e[38;5;208;1m%}%n%{\e[0m%}')%{$fg[white]%}@%{$reset_color%}%{$fg_bold[white]%}%M%{$reset_color%} $(print '%{\e[38;5;202m%}%~%{\e[0m%}') ] "
 #options
 lsopt='--color=auto'
+KEYTIMEOUT=1
 export EDITOR='vim'
 export TERM=xterm-256color
 export GPG_TTY=$(tty)
@@ -82,3 +83,17 @@ fi
 if [ -f ~/.dircolors ]
         then eval $(dircolors ~/.dircolors)
 fi
+
+#vi-mode indication
+function zle-line-init zle-keymap-select {
+  if [ -z $_PS1 ]; then
+    _PS1=$PS1
+  fi
+  case $KEYMAP in
+    vicmd) PS1='[%F{blue}vi%f]'${PS1};;
+    viins|main) PS1=${_PS1};;
+  esac
+  zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select

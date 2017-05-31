@@ -1,3 +1,5 @@
+# vim: syntax=sh
+
 # aliases
 alias startall='startx; vlock -c'
 alias l='ls -l $lsopt'

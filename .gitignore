@@ -1,3 +1,4 @@
+*.sw*
 /*
 !.zshrc
 !.aliases
@@ -5,7 +6,12 @@
 !.gtkrc-2.0
 !.gtkrc-2.0.mine
 !.gitignore
+!.gitmodules
 !.config/
 .config/*
 !.config/mc
 .config/mc/ini
+!.vim/
+.vim/sessions
+.vim/.VimballRecord
+.vim/.netrwhist
