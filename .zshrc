@@ -90,7 +90,7 @@ function zle-line-init zle-keymap-select {
     _PS1=$PS1
   fi
   case $KEYMAP in
-    vicmd) PS1='[%F{blue}vi%f]'${PS1};;
+    vicmd) PS1='[%F{cyan}vi%f]'${PS1};;
     viins|main) PS1=${_PS1};;
   esac
   zle reset-prompt
