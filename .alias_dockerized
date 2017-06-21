@@ -1,0 +1,2 @@
+alias aws='docker run -v aws-cli:/home/aws --rm -ti awscli'
+alias aws-shell='docker run -v aws-shell:/home/aws --rm -ti --entrypoint="" awscli aws-shell'

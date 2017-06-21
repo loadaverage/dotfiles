@@ -76,9 +76,12 @@ man() {
     command man "$@"
 }
 #load aliases
-if [ -f ~/.aliases ];then
-  source ~/.aliases
-fi
+alias_files=('.aliases' '.alias_functions' '.alias_dockerized') 
+for alias in ${alias_files}; do
+  if [ -f ${alias} ]; then
+    source ${alias}
+  fi
+done
 #load colors for ls
 if [ -f ~/.dircolors ]
         then eval $(dircolors ~/.dircolors)

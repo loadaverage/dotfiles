@@ -2,6 +2,8 @@
 /*
 !.zshrc
 !.aliases
+!.alias_functions
+!.alias_dockerized
 !.dircolors
 !.gtkrc-2.0
 !.gtkrc-2.0.mine

@@ -24,39 +24,3 @@ alias ga='git add'
 alias gl='git log --show-signature --graph --decorate --color=auto'
 alias gr='git reset'
 alias gconf='git config --global --list'
-function gs() {
-  git status
-}
-
-# send snippets to http://sprunge.us
-function sprunge() {
-  local link
-  local output
-  local fe_link
-  local fe=${@##*\.}
-  local yank='xclip -selection clipboard'
-  local text_uri='Link address'
-  local text_enoent='No such file'
-  local text_wrong_args='Exactly one argument please'
-  local text_succ_msg='has been copied to the clipboard'
-  if ! [[ -t 0 ]]; then
-    output=$(
-      while read -r chunk; do
-        echo ${chunk}
-      done <<(curl -sF 'sprunge=<-' 'http://sprunge.us')
-    )
-    echo ${text_uri}' '${output}' '${text_succ_msg}
-    echo ${output} | eval ${yank}
-  elif [ ${#} -eq 1 ] && [ -f ${@} ]; then
-    if ! [ "${fe}" = "${@}" ] && ! [ -z ${fe} ]; then
-      fe_link="?${fe}"
-    fi
-    output=$(cat $@ | curl -sF 'sprunge=<-' 'http://sprunge.us')
-    link=${output}${fe_link}
-    echo ${text_uri}' '${link}' '${text_succ_msg}
-    echo ${link} | eval ${yank}
-  else
-   if [ ${#} -ne 1 ]; then echo ${text_wrong_args};return 1;fi;
-   echo ${text_enoent};return 0
-  fi
-}
