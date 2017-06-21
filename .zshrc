@@ -2,20 +2,25 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/opt/bin:/usr/x86_64-pc-linux-gnu/gcc-b
 autoload colors
 colors
 PS1="[$(print '%{\e[38;5;208;1m%}%n%{\e[0m%}')%{$fg[white]%}@%{$reset_color%}%{$fg_bold[white]%}%M%{$reset_color%} $(print '%{\e[38;5;202m%}%~%{\e[0m%}') ] "
+
 #options
 lsopt='--color=auto'
 KEYTIMEOUT=1
 export EDITOR='vim'
 export TERM=xterm-256color
 export GPG_TTY=$(tty)
+
 #correct mistakes
 setopt correct_all
+
 #ignore duplicate entries in history
 setopt hist_ignore_all_dups
+
 #write history after entering it
 setopt inc_append_history
 export HISTFILE=~/.zsh_history
 export SAVEHIST=4000
+
 #history output, using up/down keys
 export HISTSIZE=4000
 autoload -Uz compinit
@@ -44,6 +49,7 @@ man() {
     LESS_TERMCAP_us=$'\e[01;92m' \
     command man "$@"
 }
+
 #load aliases
 alias_files=('.aliases' '.alias_functions' '.alias_dockerized') 
 for alias in ${alias_files}; do
@@ -51,9 +57,10 @@ for alias in ${alias_files}; do
     source ${alias}
   fi
 done
-#load colors for ls
+
+#ls colors
 if [ -f ~/.dircolors ]
-        then eval $(dircolors ~/.dircolors)
+  then eval $(dircolors ~/.dircolors)
 fi
 
 #vi-mode indication
@@ -67,5 +74,6 @@ function zle-line-init zle-keymap-select {
   esac
   zle reset-prompt
 }
+
 zle -N zle-line-init
 zle -N zle-keymap-select
