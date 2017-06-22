@@ -53,7 +53,7 @@ man() {
 }
 
 #load aliases
-alias_files=('.aliases' '.alias_functions' '.alias_dockerized') 
+alias_files=('.aliases' '.alias_functions' '.alias_dockerized' '.alias_env')
 for alias in ${alias_files}; do
   if [ -f ${alias} ]; then
     source ${alias}

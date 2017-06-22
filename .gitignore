@@ -4,6 +4,7 @@
 !.aliases
 !.alias_functions
 !.alias_dockerized
+!.alias_env
 !.dircolors
 !.gtkrc-2.0
 !.gtkrc-2.0.mine

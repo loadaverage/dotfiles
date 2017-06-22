@@ -1,0 +1,4 @@
+# vim: syntax=sh
+
+#AWS keys or other private env variables
+source <(gpg -d ~/.aws_env.gpg)
