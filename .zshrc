@@ -30,16 +30,16 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 bindkey '^R' history-incremental-search-backward
 bindkey '^_' undo
 bindkey '^K' kill-line
-bindkey "^U" backward-kill-line
-bindkey "^[OH" beginning-of-line
-bindkey "^[[H" beginning-of-line
-bindkey "e[1~" beginning-of-line
-bindkey "^[OF" end-of-line
-bindkey "^[[F" end-of-line
-bindkey "e[4~" end-of-line
-bindkey "^[[5~" beginning-of-buffer-or-history
-bindkey "^[[6~" end-of-buffer-or-history
-bindkey "^[[3~" delete-char
+bindkey '^U' backward-kill-line
+bindkey '^[OH' beginning-of-line
+bindkey '^[[H' beginning-of-line
+bindkey 'e[1~' beginning-of-line
+bindkey '^[OF' end-of-line
+bindkey '^[[F' end-of-line
+bindkey 'e[4~' end-of-line
+bindkey '^[[5~' beginning-of-buffer-or-history
+bindkey '^[[6~' end-of-buffer-or-history
+bindkey '^[[3~' delete-char
 
 #colorized man
 man() {
