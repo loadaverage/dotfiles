@@ -4,4 +4,4 @@ export AWS_DEFAULT_OUTPUT='table'
 export AWS_DEFAULT_REGION='eu-central-1'
 
 #AWS keys or other private env variables
-source <(gpg -d ~/.aws_env.gpg)
+source <(gpg -d ~/.aws_env.gpg &>/dev/null)
