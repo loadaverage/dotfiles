@@ -48,7 +48,13 @@ map <F4> :IndentGuidesToggle <CR>
 inoremap jj <ESC>
 "monokai stuff start
 ""let g:molokai_original = 1
-colorscheme pencil
+
+if !empty($GVIM_COLOR)
+  colo $GVIM_COLOR
+else 
+  colo pencil
+endif
+
 set bg=dark
 hi vertsplit guifg=fg guibg=bg
 set fillchars+=vert:\ 
@@ -122,7 +128,7 @@ imap  <C-s> <C-X>/
 nmap <A-d> :windo diffoff <CR> :windo diffthis <CR>
 "split wordlist into one column/line
 nmap rn :%s/\n//g <CR> :%s/ \{1,}/\r/g <CR>
-nmap rn :%s/\n//g <CR> :%s/ \{1,}/ /g <CR>
+nmap rN :%s/\n//g <CR> :%s/ \{1,}/ /g <CR>
 
 let g:NERDTreeFileExtensionHighlightFullName = 1
 let g:NERDTreeExactMatchHighlightFullName = 1
