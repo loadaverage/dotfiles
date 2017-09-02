@@ -22,8 +22,10 @@ alias gp='git push'
 alias gc='git commit'
 alias gpl='git pull'
 alias ga='git add'
-alias gl="git log --graph --decorate --pretty=format:'%C(#00ff00)%h%Creset ->%C(#ffff00)%d%Creset %C()%s%Creset %C(#d78700)(%cr) %C(italic #8787ff)<%an>%Creset' --abbrev-commit --date=relative"
+#alias gl="git log --graph --decorate --pretty=format:'%C(#00ff00)%h%Creset ->%C(#ffff00)%d%Creset %C()%s%Creset %C(#d78700)(%cr) %C(italic #8787ff)<%an>%Creset' --abbrev-commit --date=relative"
+alias gl="git log --graph --decorate --pretty=format:'%C(10)%h%Creset ->%C(11)%d%Creset %C()%s%Creset %C(172)(%cr) %C(italic 105)<%an>%Creset' --abbrev-commit --date=relative"
 alias gr='git reset'
 alias gd='git diff'
 alias gdn='git diff --name-only'
 alias gconf='git config --global --list'
+alias mkt='cd `mktemp -d`'

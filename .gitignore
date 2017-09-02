@@ -11,6 +11,9 @@
 !.gitignore
 !.gitmodules
 !.config/
+!.gnupg/
+.gnupg/*
+!.gnupg/gpg-agent.conf
 .config/*
 !.config/mc
 .config/mc/ini
