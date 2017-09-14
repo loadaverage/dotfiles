@@ -12,6 +12,8 @@ set hlsearch
 set expandtab
 set tabstop=2
 set shiftwidth=2
+set backspace=2
+set formatoptions=croql
 set softtabstop=2
 set guiheadroom=0
 set background=dark
