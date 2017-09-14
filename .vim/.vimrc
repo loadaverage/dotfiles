@@ -14,6 +14,7 @@ set tabstop=2
 set shiftwidth=2
 set backspace=2
 set formatoptions=croql
+set autoindent
 set softtabstop=2
 set guiheadroom=0
 set background=dark
