@@ -1,4 +1,4 @@
-# vim: set syntax=vim:
+" vim: set syntax=vim:
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'python': ['mypy'],

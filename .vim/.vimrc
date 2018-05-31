@@ -127,6 +127,8 @@ if has('gui_running')
   source $HOME/.vim/rc/mru
   " - indentLine
   source $HOME/.vim/rc/indentline
+  " - ale
+  source $HOME/.vim/rc/ale
 
 else
   " plain VIM
