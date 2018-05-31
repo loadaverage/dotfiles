@@ -1,3 +1,4 @@
+# vim: set ft=muttrc:
 # gpg opts
 set crypt_autosign=yes           # automatically sign all outgoing messages
 set crypt_autoencrypt=no         # automatically encrypt outgoing messages
