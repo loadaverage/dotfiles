@@ -7,12 +7,19 @@ let mapleader = ','
 " NERD
 noremap <leader>f :NERDTreeFind<CR>
 noremap <leader>n :NERDTreeToggle<CR>
+
 " tcomment
 map <leader>c <c-_><c-_>
+
 " mru
 noremap <leader>m :MRU<CR>
 
+" ale
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
 inoremap jj <ESC>
+
 " - split navigation
 nmap <silent> <A-Up> :wincmd k<CR>
 nmap <silent> <A-Down> :wincmd j<CR>
@@ -22,6 +29,7 @@ nmap <silent> <D-h> :wincmd h<CR>
 nmap <silent> <D-l> :wincmd l<CR>
 nmap <silent> <D-k> :wincmd k<CR>
 nmap <silent> <D-j> :wincmd j<CR>
+
 " - navigation between buffers
 noremap <D-p> :bp<CR>
 noremap <D-n> :bn<CR>
@@ -29,6 +37,7 @@ noremap <D-n> :bn<CR>
 " folding
 " - create fold Ctrl + f
 vmap <D-f> zf
+
 " - toggle fold
 nmap <D-f> za
 
