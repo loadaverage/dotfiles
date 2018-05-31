@@ -1,0 +1,5 @@
+" vim: set syntax=vim:
+let MRU_Add_Menu = 0
+let MRU_Use_Current_Window = 1
+"let MRU_Window_Height = 30
+let MRU_Max_Entries = 1000

@@ -1,0 +1,48 @@
+# vim: syntax=sh
+
+# aliases
+alias ls='gls --color=auto'
+alias md5sum='gmd5sum'
+alias sha1sum='gsha1sum'
+alias cal='gcal'
+alias sha224sum='gsha224sum'
+alias sha256sum='gsha256sum'
+alias sha384sum='gsha384sum'
+alias sha512sum='gsha512sum'
+alias dircolors='gdircolors'
+alias l='ls -l $lsopt'
+alias ll='ls -1hrt $lsopt'
+alias lll='ls -al $lsopt'
+alias lt='tree'
+alias ltt='tree -L 2'
+alias nstat='netstat -nlop'
+alias tstat='netstat -ntlop'
+alias grep='grep --color=auto'
+alias sort='gsort'
+alias base64='gbase64'
+# get public IP
+alias pubip='dig myip.opendns.com @resolver1.opendns.com +short'
+#https://github.com/jessfraz/dotfiles/blob/master/.aliases
+alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
+alias copy='xclip -selection clipboard'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias gp='git push'
+alias gc='git commit'
+alias gpl='git pull'
+alias ga='git add'
+#alias gl="git log --graph --decorate --pretty=format:'%C(#00ff00)%h%Creset ->%C(#ffff00)%d%Creset %C()%s%Creset %C(#d78700)(%cr) %C(italic #8787ff)<%an>%Creset' --abbrev-commit --date=relative"
+alias gl="git log --graph --decorate --pretty=format:'%C(10)%h%Creset ->%C(11)%d%Creset %C()%s%Creset %C(172)(%cr) %C(italic 105)<%an>%Creset' --abbrev-commit --date=relative"
+alias gr='git reset'
+alias gd='git diff'
+alias gdn='git diff --name-only'
+alias gconf='git config --global --list'
+alias mktemp='gmktemp'
+alias mkt='cd `TMPDIR=/tmp mktemp -d`'
+alias colourify='grc -es --colour=auto'
+alias ping='colourify ping'
+alias dig='colourify dig'
+function load() {
+  (printf 'PID CPU USER COMMAND MEM RSS\n'; ps aux | awk '{print $2, $3, $1, $11, $4, $6"K"}' | sort -n -k 2 | tail -n 10) | column -t
+}

@@ -1,0 +1,77 @@
+" vim: set syntax=vim:
+"  mappings
+
+let mapleader = ','
+
+" - plugins
+" NERD
+noremap <leader>f :NERDTreeFind<CR>
+noremap <leader>n :NERDTreeToggle<CR>
+" tcomment
+map <leader>c <c-_><c-_>
+" mru
+noremap <leader>m :MRU<CR>
+
+inoremap jj <ESC>
+" - split navigation
+nmap <silent> <A-Up> :wincmd k<CR>
+nmap <silent> <A-Down> :wincmd j<CR>
+nmap <silent> <A-Left> :wincmd h<CR>
+nmap <silent> <A-Right> :wincmd l<CR>
+nmap <silent> <D-h> :wincmd h<CR>
+nmap <silent> <D-l> :wincmd l<CR>
+nmap <silent> <D-k> :wincmd k<CR>
+nmap <silent> <D-j> :wincmd j<CR>
+" - navigation between buffers
+noremap <D-p> :bp<CR>
+noremap <D-n> :bn<CR>
+
+" folding
+" - create fold Ctrl + f
+vmap <D-f> zf
+" - toggle fold
+nmap <D-f> za
+
+" tabs
+" - newtab
+map <D-t> :tabnew<CR>
+map <C-Tab> :tabnext<CR>
+map <C-S-Tab> :tabprev<CR>
+
+" misc compatibility
+" - redo
+map <D-y> :redo<CR>
+" - undo
+map <D-z> :u<CR>
+" - save
+map <D-s> :w<CR>
+" - close
+nmap <A-s> :q<CR>
+" - select all
+nmap <D-A> ggVG
+" - CTRL-C to copy (visual mode)
+vmap <D-c> y
+" - CTRL-X to cut (visual mode)
+vmap <D-x> x
+" - CTRL-V to paste (insert mode)
+imap <D-v> <esc>P
+" - CTRL+V to paste from other clipboard
+nmap <D-V> "+gP
+" - And copy
+vmap <D-C> "+y
+" - And cut
+vmap <D-X> "+x
+" - Paste in selected from X clipboard
+vmap <D-v> "+p
+" diff two buffers
+nmap <D-d> :windo diffoff <CR> :windo diffthis <CR>
+" delete buffer
+noremap <D-w> :bd <CR>
+" - split line to list
+noremap <leader>r :%s/\n//g <CR> :%s/ \{1,}/\r/g <CR>
+" - split list to line
+noremap <leader>R :%s/\n/ /g <CR> :%s/ \{1,}/ /g <CR>
+" - clear search pattern
+noremap <leader>l :let @/ = ""<CR>
+" - netrw
+noremap <leader>e :Vexplore <CR>

@@ -1,0 +1,127 @@
+" vim: set syntax=vim:
+" vim: set filetype=vim:
+" NERDTree
+let g:NERDTreeWinPos = "right"
+let g:NERDTreeDirArrowExpandable = '+'
+let g:NERDTreeDirArrowCollapsible = '-'
+let g:NERDTreeFileExtensionHighlightFullName = 1
+let g:NERDTreeExactMatchHighlightFullName = 1
+let g:NERDTreePatternMatchHighlightFullName = 1
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeShowLineNumbers = 1
+let g:NERDTreeQuitOnOpen = 1
+autocmd filetype nerdtree set nolist
+
+" syntax-highlight
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+ exec 'autocmd filetype nerdtree highlight extension_' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+ exec 'autocmd filetype nerdtree syn match extension_' . a:extension .' #^\s\+.*\.\?'. a:extension .'$#'
+endfunction
+
+let s:aqua        = "#3AFFDB"
+let s:beige       = "#F5C06F"
+let s:blue        = "#689FB6"
+let s:brown       = "#905532"
+let s:darkBlue    = "#44788E"
+let s:darkOrange  = "#F16529"
+let s:green       = "#8FAA54"
+let s:lightGreen  = "#31B53E"
+let s:lightPurple = "#834F79"
+let s:orange      = "#D4843E"
+let s:pink        = "#CB6F6F"
+let s:purple      = "#834F79"
+let s:purple      = "#FBA09D"
+let s:red         = "#AE403F"
+let s:salmon      = "#EE6E73"
+let s:white       = "#FFFFFF"
+let s:yellow      = "#F09F17"
+
+let s:file_extension_colors = {
+  \ 'Dockerfile':s:red,
+  \ 'ai'        :s:darkOrange,
+  \ 'bat'       :s:green,
+  \ 'bmp'       :s:aqua,
+  \ 'c'         :s:blue,
+  \ 'cc'        :s:blue,
+  \ 'clj'       :s:green,
+  \ 'cljc'      :s:green,
+  \ 'cljs'      :s:green,
+  \ 'coffee'    :s:brown,
+  \ 'conf'      :s:white,
+  \ 'cp'        :s:blue,
+  \ 'cpp'       :s:blue,
+  \ 'css'       :s:blue,
+  \ 'cxx'       :s:blue,
+  \ 'd'         :s:red,
+  \ 'dart'      :s:blue,
+  \ 'db'        :s:blue,
+  \ 'diff'      :s:white,
+  \ 'dump'      :s:blue,
+  \ 'edn'       :s:green,
+  \ 'ejs'       :s:yellow,
+  \ 'erb'       :s:red,
+  \ 'erl'       :s:lightPurple,
+  \ 'fish'      :s:green,
+  \ 'fs'        :s:darkBlue,
+  \ 'fsi'       :s:blue,
+  \ 'fsscript'  :s:blue,
+  \ 'fsx'       :s:blue,
+  \ 'gif'       :s:aqua,
+  \ 'go'        :s:beige,
+  \ 'hbs'       :s:orange,
+  \ 'hrl'       :s:pink,
+  \ 'hs'        :s:beige,
+  \ 'htm'       :s:darkOrange,
+  \ 'html'      :s:darkOrange,
+  \ 'ico'       :s:aqua,
+  \ 'ini'       :s:white,
+  \ 'java'      :s:purple,
+  \ 'jl'        :s:purple,
+  \ 'jpeg'      :s:aqua,
+  \ 'jpg'       :s:aqua,
+  \ 'js'        :s:beige,
+  \ 'json'      :s:salmon,
+  \ 'jsx'       :s:blue,
+  \ 'less'      :s:darkBlue,
+  \ 'lhs'       :s:beige,
+  \ 'lua'       :s:purple,
+  \ 'markdown'  :s:yellow,
+  \ 'md'        :s:yellow,
+  \ 'ml'        :s:yellow,
+  \ 'mli'       :s:yellow,
+  \ 'mustache'  :s:orange,
+  \ 'php'       :s:purple,
+  \ 'pl'        :s:blue,
+  \ 'pm'        :s:blue,
+  \ 'png'       :s:aqua,
+  \ 'psb'       :s:darkBlue,
+  \ 'psd'       :s:darkBlue,
+  \ 'py'        :s:yellow,
+  \ 'pyc'       :s:yellow,
+  \ 'pyd'       :s:yellow,
+  \ 'pyo'       :s:yellow,
+  \ 'rb'        :s:red,
+  \ 'rlib'      :s:darkOrange,
+  \ 'rs'        :s:darkOrange,
+  \ 'rss'       :s:darkOrange,
+  \ 'scala'     :s:red,
+  \ 'scss'      :s:pink,
+  \ 'sh'        :s:lightPurple,
+  \ 'slim'      :s:orange,
+  \ 'sln'       :s:purple,
+  \ 'sql'       :s:darkBlue,
+  \ 'styl'      :s:green,
+  \ 'suo'       :s:purple,
+  \ 't'         :s:blue,
+  \ 'ts'        :s:blue,
+  \ 'twig'      :s:green,
+  \ 'vim'       :s:green,
+  \ 'xml'       :s:salmon,
+  \ 'xul'       :s:darkOrange,
+  \ 'yaml'      :s:purple,
+  \ 'yml'       :s:purple,
+\}
+
+for [key, value] in items(s:file_extension_colors)
+  call NERDTreeHighlightFile(key, 'NONE', 'NONE', value, 'NONE')
+endfor

@@ -1,0 +1,31 @@
+[user]
+	email = devnull@roundside.com
+	name = VS
+	signingkey = 568963826BD191E2134351B9CBCC4463B25520AB
+[core]
+	fileMode = false
+	editor = vim
+	pager = less -F -X
+[alias]
+	s = status
+	setgithub = config user.email \"github@roundside.com\"
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+	ui = true
+	pager = true
+[color "status"]
+	added = green
+	changed = red bold
+	untracked = magenta bold
+[color "diff"]
+	meta = yellow bold
+	old = red bold
+	new = green bold
+	added = green
