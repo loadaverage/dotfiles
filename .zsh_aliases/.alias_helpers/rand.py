@@ -14,8 +14,8 @@ def rand(length=18):
   parser.add_argument('-b', type=int,
           help='amount of bytes from random generator, default is 18,\
           values < {0} and > {1} will be ignored '.format(_MIN_BYTES, _MAX_BYTES),
-        metavar='{0}..{1}'.format(_MIN_BYTES, _MAX_BYTES),
-        dest='bytes')
+          metavar='{0}..{1}'.format(_MIN_BYTES, _MAX_BYTES),
+          dest='bytes')
 
   parser.add_argument('-c', help='copy result to the clipboard',
         action='store_true', dest='copy')
