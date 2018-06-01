@@ -1,5 +1,9 @@
 # vim: set syntax=sh:
 
+function load() {
+  (printf 'PID CPU USER COMMAND MEM RSS\n'; ps aux | awk '{print $2, $3, $1, $11, $4, $6"K"}' | sort -n -k 2 | tail -n 10) | column -t
+}
+
 function gs() {
   git status
 }
