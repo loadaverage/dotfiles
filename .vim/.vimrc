@@ -129,6 +129,8 @@ if has('gui_running')
   source $HOME/.vim/rc/indentline
   " - ale
   source $HOME/.vim/rc/ale
+  " - tagbar
+  source $HOME/.vim/rc/tagbar
 
 else
   " plain VIM

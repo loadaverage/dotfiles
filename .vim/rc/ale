@@ -1,9 +1,19 @@
 " vim: set syntax=vim:
+
+let g:ale_pattern_options_enabled = 1
+
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'python': ['mypy'],
 \   'haskell': [],
 \   'ruby': []
 \}
+
+let g:ale_pattern_options = {
+\   '.*\.zshrc$':    { 'ale_enabled': 0 },
+\   '.*\.sh$':       { 'ale_enabled': 0 },
+\   '.*\.min\.js$':  { 'ale_linters': [], 'ale_fixers': [] },
+\}
+
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
