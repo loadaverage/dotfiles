@@ -18,6 +18,11 @@ noremap <leader>m :MRU<CR>
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
+" filetype specific
+autocmd filetype json noremap <leader>j :call JsonBeautify()<CR>
+autocmd filetype html noremap <leader>j :call HtmlBeautify()<CR>
+autocmd filetype javascript noremap <leader>j :call JsBeautify()<CR>
+
 inoremap jj <ESC>
 
 " - split navigation
