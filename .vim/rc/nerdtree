@@ -1,6 +1,17 @@
-" vim: set syntax=vim:
 " vim: set filetype=vim:
-" NERDTree
+
+" syntax-highlight
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+ exec 'autocmd filetype nerdtree highlight extension_' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+ exec 'autocmd filetype nerdtree syn match extension_' . a:extension .' #^\s\+.*\.\?'. a:extension .'$#'
+endfunction
+
+" save and restore original highlight
+function! ReturnHighlightTerm(group, term)
+   let output = execute('hi Cursor')
+   return matchstr(output, a:term.'=\zs\S*')
+endfunction
+
 let g:NERDTreeWinPos = "right"
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
@@ -10,13 +21,15 @@ let g:NERDTreePatternMatchHighlightFullName = 1
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeShowLineNumbers = 1
 let g:NERDTreeQuitOnOpen = 1
+
+" save original Cursor's highlights
+let s:original_cursor = 'highlight Cursor guifg=' . ReturnHighlightTerm('Cursor', 'guifg') . ' guibg=' . ReturnHighlightTerm('Cursor', 'guibg')
+
 autocmd filetype nerdtree set nolist
 
-" syntax-highlight
-function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
- exec 'autocmd filetype nerdtree highlight extension_' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
- exec 'autocmd filetype nerdtree syn match extension_' . a:extension .' #^\s\+.*\.\?'. a:extension .'$#'
-endfunction
+" remove cursor entirely from NERDTree
+autocmd BufEnter * if &ft ==# 'nerdtree' | execute 'highlight Cursor guifg=NONE guibg=NONE' | endif
+autocmd WinEnter * if &ft ==# 'nerdtree' | execute 'highlight Cursor guifg=NONE guibg=NONE' | else | execute s:original_cursor | endif
 
 let s:aqua        = "#3AFFDB"
 let s:beige       = "#F5C06F"

@@ -1,0 +1,4 @@
+" vim: set ft=vim:
+let g:ctrlp_map = '<leader>m'
+let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_match_window = 'min:5,max:20'

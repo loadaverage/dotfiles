@@ -58,10 +58,14 @@ if has('gui_running')
   Plug 'maksimr/vim-jsbeautify'
   " - misc
   Plug 'editorconfig/editorconfig-vim'
+  Plug 'ctrlpvim/ctrlp.vim'
   " - linters
   Plug 'w0rp/ale'
   Plug 'maximbaz/lightline-ale'
-  " - unused 
+  " - tags and code analyzers
+  Plug 'ternjs/tern_for_vim'
+  Plug 'ramitos/jsctags'
+  " - unused
   "   TODO: clean or recap
   "Plug 'kshenoy/vim-signature'
   "Plug 'garbas/vim-snipmate'
@@ -73,6 +77,7 @@ if has('gui_running')
 
   " main
   syntax on
+  set path+=~/repos/**
   set number
   set relativenumber
   set cursorline
@@ -110,6 +115,7 @@ if has('gui_running')
   set showtabline=0
   set conceallevel=0
   set fillchars+=vert:\ 
+  set wildignore+=*/node_modules/**
   autocmd BufEnter * silent! lcd %:p:h  " CWD to buffer's directory
 
   " import plugin and color schemes settings, key mappings
@@ -131,6 +137,8 @@ if has('gui_running')
   source $HOME/.vim/rc/ale
   " - tagbar
   source $HOME/.vim/rc/tagbar
+  " - ctrlp
+  source $HOME/.vim/rc/ctrlp
 
 else
   " plain VIM

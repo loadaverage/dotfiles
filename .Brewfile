@@ -36,5 +36,6 @@ brew "vifm"
 brew "vim"
 brew "weechat"
 brew "wget"
+brew "yarn"
 brew "zsh"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
