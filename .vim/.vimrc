@@ -139,6 +139,8 @@ if has('gui_running')
   source $HOME/.vim/rc/tagbar
   " - ctrlp
   source $HOME/.vim/rc/ctrlp
+  " - filetype specific
+  source $HOME/.vim/rc/ft
 
 else
   " plain VIM
