@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "eslint": {
+      "version": "4.19.1",
+      "from": "eslint",
+      "resolved": "https://registry.npmjs.org/eslint/-/eslint-4.19.1.tgz"
+    },
+    "js-beautify": {
+      "version": "1.7.5",
+      "from": "js-beautify",
+      "resolved": "https://registry.npmjs.org/js-beautify/-/js-beautify-1.7.5.tgz"
+    },
+    "jsctags": {
+      "version": "5.2.2",
+      "from": "jsctags",
+      "resolved": "https://registry.npmjs.org/jsctags/-/jsctags-5.2.2.tgz"
+    },
+    "mocha": {
+      "version": "5.2.0",
+      "from": "mocha",
+      "resolved": "https://registry.npmjs.org/mocha/-/mocha-5.2.0.tgz"
+    },
+    "npm": {
+      "version": "6.1.0"
+    }
+  }
+}
