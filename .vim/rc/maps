@@ -18,6 +18,11 @@ noremap <leader>m :MRU<CR>
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
+" omni complete box
+inoremap <C-p> <C-x><C-o>
+inoremap <expr> <c-j> ("\<C-n>")
+inoremap <expr> <c-k> ("\<C-p>")
+
 inoremap jj <ESC>
 
 " - split navigation

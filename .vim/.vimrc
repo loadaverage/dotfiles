@@ -114,9 +114,10 @@ if has('gui_running')
   set wildmode=list:longest
   set showtabline=0
   set conceallevel=0
-  set fillchars+=vert:\ 
+  set fillchars+=vert:\
   set wildignore+=*/node_modules/**
   autocmd BufEnter * silent! lcd %:p:h  " CWD to buffer's directory
+  autocmd CompleteDone * pclose         " close preview windows after completion is done
 
   " import plugin and color schemes settings, key mappings
   " - mappings
