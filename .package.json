@@ -5,6 +5,11 @@
       "from": "eslint",
       "resolved": "https://registry.npmjs.org/eslint/-/eslint-4.19.1.tgz"
     },
+    "istanbul": {
+      "version": "0.4.5",
+      "from": "istanbul",
+      "resolved": "https://registry.npmjs.org/istanbul/-/istanbul-0.4.5.tgz"
+    },
     "js-beautify": {
       "version": "1.7.5",
       "from": "js-beautify",
