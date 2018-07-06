@@ -42,7 +42,6 @@ if has('gui_running')
   Plug 'vim-scripts/mayansmoke'
   Plug 'altercation/vim-colors-solarized'
   Plug 'chriskempson/vim-tomorrow-theme'
-  Plug 'vim-scripts/summerfruit256.vim'
   Plug 'reedes/vim-colors-pencil'
   Plug 'vim-scripts/ironman.vim'
   Plug 'junegunn/seoul256.vim'

@@ -1,6 +1,7 @@
 " vim: set syntax=vim:
 if !empty($GVIM_COLOR)
   colo $GVIM_COLOR
+  let g:indentLine_color_gui = 'gray'
 else
   set background=dark
   colo solarized
