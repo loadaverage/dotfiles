@@ -9,6 +9,7 @@ alias aws='docker run \
   --rm\
   -ti\
   awscli'
+
 alias aws-shell='docker run \
   -e AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION\
   -e AWS_DEFAULT_OUTPUT=$AWS_DEFAULT_OUTPUT\
@@ -20,3 +21,12 @@ alias aws-shell='docker run \
   --entrypoint=""\
   awscli\
   aws-shell'
+
+# dockerize in Node.js
+alias dn="docker run \
+  --rm -ti -v $PWD:/app \
+  node bash"
+
+alias dnp="docker run \
+  --rm -p 80:80 -ti -v $PWD:/app \
+  node bash"
