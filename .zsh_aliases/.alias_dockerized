@@ -23,10 +23,14 @@ alias aws-shell='docker run \
   aws-shell'
 
 # dockerize in Node.js
-alias dn="docker run \
-  --rm -ti -v $PWD:/app \
-  node bash"
+function dn() {
+  docker run \
+    --rm -ti -v `pwd`:/app \
+    node bash
+}
 
-alias dnp="docker run \
-  --rm -p 80:80 -ti -v $PWD:/app \
-  node bash"
+function dnp() {
+  docker run \
+    --rm -p 80:80 -ti -v `pwd`:/app \
+    node bash
+}
