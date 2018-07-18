@@ -1,3 +1,4 @@
+set shell=$HOME/Downloads/homebrew/bin/zsh\ -i
 if has('gui_running')
   " mappings:
   "  <leader> + w          => easymotion;N
