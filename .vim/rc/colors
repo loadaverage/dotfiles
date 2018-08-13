@@ -1,10 +1,40 @@
 " vim: set syntax=vim:
 if !empty($GVIM_COLOR)
-  colo $GVIM_COLOR
-  let g:indentLine_color_gui = 'gray'
+
+  " colorschemes fine tuning
+  if !empty($GVIM_BG)
+    set background="$GVIM_BG"
+  endif
+
+  if $GVIM_COLOR == 'nord'
+    let g:nord_comment_brightness = 10
+    let g:indentLine_color_gui = '#4d5a7a'
+    let g:indentLine_bgcolor_gui = 'NONE'
+    let g:indentLine_concealcursor=0
+    colo $GVIM_COLOR
+    :hi StatusLine guibg='#3b4251'
+    :hi ColorColumn guibg='NONE' guifg='#209299'
+  endif
+
+  if $GVIM_COLOR == 'solarized'
+    let g:indentLine_color_gui = '#043c4a'
+    let g:indentLine_bgcolor_gui = 'NONE'
+    let g:indentLine_concealcursor=0
+    colo $GVIM_COLOR
+    :hi StatusLineNC guifg='#0a3641'
+    :hi TagbarSignature guibg='NONE'
+    :hi ColorColumn guibg='#012d38'
+    :au filetype tagbar hi TagbarSignature guifg='#729d1f' guibg='NONE'
+  endif
+
 else
   set background=dark
   colo solarized
+endif
+
+" lighline colorscheme
+if !empty($GVIM_LL)
+  let g:lightline.colorscheme = $GVIM_LL
 endif
 
 " - fixes and neat thigns
@@ -16,5 +46,3 @@ if &diff
    hi DiffAdd gui=NONE guifg=bg guibg=#10A778
    hi DiffText gui=NONE guifg=bg guibg=#D75F5F
 endif
-
-highlight ColorColumn guibg=#012d38

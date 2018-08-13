@@ -1,58 +1,126 @@
 " vim: set syntax=vim:
 let g:lightline = {
-      \ 'colorscheme': 'solarized',
-      \ 'component_function': {
-      \   'gitbranch': 'fugitive#head',
-      \   'mode': 'LightlineMode'
-      \ }, 
-      \ 'tab_component_function': {
-      \   'tabpagecount': 'Fillout'
-      \ }
-      \ }
+  \ 'colorscheme': 'solarized',
+  \ 'component_function': {
+  \   'mode': 'LightlineMode',
+  \   'gitbranch': 'LightlineFugitive',
+  \   'readonly': 'LightlineRO',
+  \   'filename': 'LightlineFilename',
+  \   'modified': 'LightlineModified',
+  \   'fileformat': 'LightlineFileformat',
+  \   'fileencoding': 'LightlineFileencoding',
+  \   'filetype': 'LightlineFiletype',
+  \   'lineinfo': 'LightlineLineinfo',
+  \   'percent': 'LightlinePercent',
+  \ }
+  \ }
+
+let g:lightline.mode_map = {
+  \ 'n': 'N',
+  \ 'i': 'I',
+  \ 'R': 'R',
+  \ 'v': 'V',
+  \ 'V': 'VL',
+  \ "\<C-v>": 'VB',
+  \ 'c': 'CMD',
+  \ 's': 'SEL',
+  \ 'S': 'SL',
+  \ "\<C-s>": 'SB',
+  \ 't': 'T',
+  \ }
 
 let g:lightline.tab = {
-    \ 'active': [ 'tabnum', 'filename', 'modified' ],
-    \ 'inactive': [ 'tabnum', 'filename', 'modified' ] }
+  \ 'active': [ 'tabnum', 'filename', 'modified' ],
+  \ 'inactive': [ 'tabnum', 'filename', 'modified' ]
+  \ }
 
 let g:lightline.active = {
-      \ 'right':
-      \    [ [ 'lineinfo' ], [ 'percent', 'wordcount' ], [ 'fileformat', 'fileencoding', 'filetype' ], [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ]],
-      \ 'left': [ [ 'mode', 'paste' ],
-      \    [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ }
+  \ 'right':
+  \    [ [ 'lineinfo' ], [ 'percent', 'wordcount' ], [ 'fileformat', 'fileencoding', 'filetype' ], [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ]],
+  \ 'left': [ [ 'mode', 'paste' ],
+  \    [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+  \ }
+
+let g:lightline.inactive = {
+  \ 'left': [ [ 'filename' ], [ 'gitbranch' ] ],
+  \ 'right': [[]]
+  \ }
 
 let g:lightline.component_expand = {
-      \  'buffers': 'lightline#bufferline#buffers',
-      \  'linter_checking': 'lightline#ale#checking',
-      \  'linter_warnings': 'lightline#ale#warnings',
-      \  'linter_errors': 'lightline#ale#errors',
-      \  'linter_ok': 'lightline#ale#ok' 
-      \ }
+  \  'buffers': 'lightline#bufferline#buffers',
+  \  'linter_checking': 'lightline#ale#checking',
+  \  'linter_warnings': 'lightline#ale#warnings',
+  \  'linter_errors': 'lightline#ale#errors',
+  \  'linter_ok': 'lightline#ale#ok'
+  \ }
 let g:lightline.component_type = {
-      \  'linter_checking': 'left',
-      \  'linter_warnings': 'warning',
-      \  'linter_errors': 'error',
-      \  'linter_ok': 'left',
-      \  'buffers': 'tabsel' 
-      \ }
+  \  'linter_checking': 'left',
+  \  'linter_warnings': 'warning',
+  \  'linter_errors': 'error',
+  \  'linter_ok': 'left',
+  \  'buffers': 'tabsel'
+  \ }
 let g:lightline#bufferline#show_number = 2
 let g:lightline#bufferline#shorten_path = 1
 let g:lightline#bufferline#unnamed = '[No Name]'
 let g:lightline#bufferline#number_map = {
-      \ 0: '⁰', 1: '¹', 2: '²', 3: '³', 4: '⁴',
-      \ 5: '⁵', 6: '⁶', 7: '⁷', 8: '⁸', 9: '⁹'}
+  \ 0: '⁰', 1: '¹', 2: '²', 3: '³', 4: '⁴',
+  \ 5: '⁵', 6: '⁶', 7: '⁷', 8: '⁸', 9: '⁹'}
 
-" function !Fillout() 
-"  return 'filled'
-" endfunction
-"
-" function! Testing()
-"   return 'fo'
-" endfunction
-
-function! LightlineMode()
-    return expand('%:t') ==# '__Tagbar__' ? 'Tagbar':
-            \ &filetype ==# 'nerdtree' ? 'NERD' :
-            \ lightline#mode()
+function! IfNERDTree()
+  let _ = &ft == 'nerdtree'
+  return _
 endfunction
 
+function! IfTagbar()
+  let _ = &ft == 'tagbar'
+  return _
+endfunction
+
+function! NERDTreeStatusline()
+  let line = getline(".")
+  return matchstr(line, '\v\s*[-+]?\s?\zs([ 0-9A-Za-z\(\)_.\+\/\\:\>-])+>?')
+endfunction
+
+function! LightlineMode()
+  let fname = expand('%:t')
+  return fname == 'ControlP' ? 'Fuzzy Search' :
+    \ fname =~ 'NERD_tree' ?  NERDTreeStatusline():
+    \ winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
+
+function! LightlineFugitive()
+  return IfNERDTree() ? '' : IfTagbar() ? '' : fugitive#head()
+endfunction
+
+function! LightlineRO()
+  return IfNERDTree() ? '' : &readonly ? 'RO' : ''
+endfunction
+
+function! LightlineFilename()
+  return IfNERDTree() ? '' : IfTagbar() ? '' : '' != expand('%:t') ? expand('%:t') : '[No Name]'
+endfunction
+
+function! LightlineModified()
+  return IfNERDTree() ? '' : &modifiable && &modified ? '+' : ''
+endfunction
+
+function! LightlineFileformat()
+  return IfNERDTree() ? '' : winwidth(0) > 70 ? &fileformat : ''
+endfunction
+
+function! LightlineFiletype()
+  return IfNERDTree() ? '' : winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+endfunction
+
+function! LightlineFileencoding()
+  return IfNERDTree() ? '' : winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
+endfunction
+
+function! LightlinePercent()
+  return IfNERDTree() ? '' : (100 * line('.') / line('$')) . '%'
+endfunction
+
+function! LightlineLineinfo()
+  return IfNERDTree() ? '' :  printf("%3d:%-2d", line('.'), col('.'))
+endfunction

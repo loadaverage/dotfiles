@@ -49,6 +49,8 @@ if has('gui_running')
   Plug 'goatslacker/mango.vim'
   Plug 'croaker/mustang-vim'
   Plug 'morhetz/gruvbox'
+  Plug 'NLKNguyen/papercolor-theme'
+  Plug 'arcticicestudio/nord-vim'
   " - syntax
   Plug 'tomlion/vim-solidity'
   Plug 'digitaltoad/vim-pug'
@@ -116,14 +118,13 @@ if has('gui_running')
   set conceallevel=0
   set fillchars+=vert:\
   set wildignore+=*/node_modules/**
+  set cc=80
   autocmd BufEnter * silent! lcd %:p:h  " CWD to buffer's directory
   autocmd CompleteDone * pclose         " close preview windows after completion is done
 
   " import plugin and color schemes settings, key mappings
   " - mappings
   source $HOME/.vim/rc/maps
-  " - colorschemes
-  source $HOME/.vim/rc/colors
   " - NERDTree
   source $HOME/.vim/rc/nerdtree
   " - lightline
@@ -142,6 +143,8 @@ if has('gui_running')
   source $HOME/.vim/rc/ctrlp
   " - filetype specific
   source $HOME/.vim/rc/ft
+  " - colorschemes
+  source $HOME/.vim/rc/colors
 
 else
   " plain VIM

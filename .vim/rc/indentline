@@ -1,8 +1,6 @@
 " vim: set syntax=vim:
 let g:indentLine_fileTypeExclude = ['json']
-au FileType json set conceallevel=0
-if !empty($GVIM_COLOR)
-  let g:indentLine_color_gui = 'gray'
-else
-  let g:indentLine_color_gui = '#204540'
-endif
+:au FileType json set conceallevel=0
+:au BufEnter * set conceallevel=2
+:au BufLeave * set conceallevel=0
+:au WinLeave * set conceallevel=0
