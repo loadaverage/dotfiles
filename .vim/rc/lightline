@@ -77,6 +77,11 @@ function! IfTagbar()
   return _
 endfunction
 
+function! IfTerminal()
+  let _ = mode() == 't'
+  return _
+endfunction
+
 function! NERDTreeStatusline()
   let line = getline(".")
   return matchstr(line, '\v\s*[-+]?\s?\zs([ 0-9A-Za-z\(\)_.\+\/\\:\>-])+>?')
@@ -90,11 +95,11 @@ function! LightlineMode()
 endfunction
 
 function! LightlineFugitive()
-  return IfNERDTree() ? '' : IfTagbar() ? '' : fugitive#head()
+  return IfNERDTree() ? '' : IfTagbar() ? '' : IfTerminal() ? '' : fugitive#head()
 endfunction
 
 function! LightlineRO()
-  return IfNERDTree() ? '' : &readonly ? 'RO' : ''
+  return IfNERDTree() ? '' : &readonly ? 'RO' : IfTerminal() ? '' : ''
 endfunction
 
 function! LightlineFilename()
@@ -102,25 +107,25 @@ function! LightlineFilename()
 endfunction
 
 function! LightlineModified()
-  return IfNERDTree() ? '' : &modifiable && &modified ? '+' : ''
+  return IfNERDTree() ? '' : IfTerminal() ? '' : &modifiable && &modified ? '+' : ''
 endfunction
 
 function! LightlineFileformat()
-  return IfNERDTree() ? '' : winwidth(0) > 70 ? &fileformat : ''
+  return IfNERDTree() ? '' : IfTerminal() ? '' : winwidth(0) > 70 ? &fileformat : ''
 endfunction
 
 function! LightlineFiletype()
-  return IfNERDTree() ? '' : winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+  return IfNERDTree() ? '' : IfTerminal() ? '' : winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
 endfunction
 
 function! LightlineFileencoding()
-  return IfNERDTree() ? '' : winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
+  return IfNERDTree() ? '' : IfTerminal() ? '' : winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
 endfunction
 
 function! LightlinePercent()
-  return IfNERDTree() ? '' : (100 * line('.') / line('$')) . '%'
+  return IfNERDTree() ? '' : IfTerminal() ? '' : (100 * line('.') / line('$')) . '%'
 endfunction
 
 function! LightlineLineinfo()
-  return IfNERDTree() ? '' :  printf("%3d:%-2d", line('.'), col('.'))
+  return IfNERDTree() ? '' : IfTerminal() ? '' : printf("%3d:%-2d", line('.'), col('.'))
 endfunction
